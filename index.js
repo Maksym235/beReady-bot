@@ -1,9 +1,9 @@
 const TelegramAPI = require("node-telegram-bot-api");
-const token = "6646615366:AAF9yWxBEFQauni-jLs9_RTcVILA5m-AKoY";
+
 const img =
   "https://vidviday.ua/storage/media/tour/3147/polonyna-borzhava-3x2.jpg";
 // const { TOKEN } = process.env;
-const bot = new TelegramAPI(token, { polling: true });
+const bot = new TelegramAPI(process.env.TOKEN, { polling: true });
 const { info, help } = require("./ansver");
 bot.on("message", async (message) => {
   const text = message.text;
