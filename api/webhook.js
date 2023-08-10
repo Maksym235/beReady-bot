@@ -8,6 +8,7 @@ module.exports = (req, res) => {
 
 const TelegramBot = require("node-telegram-bot-api");
 const token = "6646615366:AAF9yWxBEFQauni-jLs9_RTcVILA5m-AKoY";
+const { info, help } = require("./ansver");
 // Export as an asynchronous function
 // We'll wait until we've responded to the user
 module.exports = async (request, response) => {
@@ -36,6 +37,23 @@ module.exports = async (request, response) => {
       // Send our new message back in Markdown and
       // wait for the request to finish
       await bot.sendMessage(id, message, { parse_mode: "Markdown" });
+    }
+
+    if (body.message.text === "/start") {
+      const {
+        text,
+        chat: { id },
+        from: { first_name },
+      } = body.message;
+      await bot.sendPhoto(chatId, img);
+      await bot.sendMessage(chatId, `Вітаю ${first_name} в чат боті 'BeReady'`);
+    }
+
+    if (body.message.text === "/info") {
+      await bot.sendMessage(chatId, info);
+    }
+    if (body.message.text === "/help") {
+      await bot.sendMessage(chatId, help);
     }
   } catch (error) {
     // If there was an error sending our message then we
