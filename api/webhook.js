@@ -8,7 +8,6 @@ module.exports = (req, res) => {
 
 const TelegramBot = require("node-telegram-bot-api");
 const token = "6646615366:AAF9yWxBEFQauni-jLs9_RTcVILA5m-AKoY";
-const { info, help } = require("./ansver");
 // Export as an asynchronous function
 // We'll wait until we've responded to the user
 module.exports = async (request, response) => {
@@ -38,6 +37,10 @@ module.exports = async (request, response) => {
       // wait for the request to finish
       await bot.sendMessage(id, message, { parse_mode: "Markdown" });
     }
+    const info =
+      "Це телеграм бот BeReady \n\n створений для комфортної підготовки до походів, аби ви не забули взяти з собою все необхідне.\n\n Всі команди ви можете переглянути в розділі /help";
+    const help =
+      "======================\n /start - розпочати чат. \n /info - інформація про чат-бота. \n /help -список команд. \n ======================";
 
     if (body.message.text === "/start") {
       const {
