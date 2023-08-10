@@ -21,22 +21,22 @@ module.exports = async (request, response) => {
     const { body } = request;
 
     // Ensure that this is a message being sent
-    if (body.message) {
-      // Retrieve the ID for this chat
-      // and the text that the user sent
-      const {
-        chat: { id },
-        text,
-      } = body.message;
+    // if (body.message) {
+    // Retrieve the ID for this chat
+    // and the text that the user sent
+    // const {
+    //   chat: { id },
+    //   text,
+    // } = body.message;
 
-      // Create a message to send back
-      // We can use Markdown inside this
-      const message = `✅ Thanks for your message: *"${text}"*\nHave a great day! 👋🏻`;
+    // Create a message to send back
+    // We can use Markdown inside this
+    // const message = `✅ Thanks for your message: *"${text}"*\nHave a great day! 👋🏻`;
 
-      // Send our new message back in Markdown and
-      // wait for the request to finish
-      await bot.sendMessage(id, message, { parse_mode: "Markdown" });
-    }
+    // Send our new message back in Markdown and
+    // wait for the request to finish
+    // await bot.sendMessage(id, message, { parse_mode: "Markdown" });
+    // }
     const info =
       "Це телеграм бот BeReady \n\n створений для комфортної підготовки до походів, аби ви не забули взяти з собою все необхідне.\n\n Всі команди ви можете переглянути в розділі /help";
     const help =
